@@ -1,0 +1,21 @@
+<h3 class="form-heading text-center">Add the Customers</h3>
+<form class="form-group" action="/customer/addCustomer" method="POST">
+    <div class="row">
+        <input type="text" class="form-control" id="name" name="name" value="<%= customer.name %>"
+            placeholder="Enter Customers name" required>
+    </div>
+    <div class="row">
+        <input type="text" class="form-control" id="address" name="address" value="<%= customer.address %>"
+            placeholder="Enter Customers Address" required>
+    </div>
+    <div class="row">
+        <input type="email" class="form-control col" id="email" name="email" value="<%= customer.email %>"
+            placeholder="Enter Customers Email" required>
+        <input type="text" class="form-control col" id="contact" name="contact" value="<%= customer.contact %>"
+            maxlength="10" minlength="10" placeholder="Enter customers contact no" required>
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-primary col" value="Submit">
+        <a href="/customer" class="btn btn-danger col">Cancel</a>
+    </div>
+</form>

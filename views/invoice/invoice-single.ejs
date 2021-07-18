@@ -1,0 +1,79 @@
+<div class="invoice">
+    <div class="pure-g">
+        <div class="pure-u-1-2 invoice-heading">
+            <h1>Invoice</h1>
+            <a href="/invoice/sendInvoice/<%- invoice._id %>" class="btn btn-primary">Send via Email</a>
+        </div>
+        <div class="pure-u-1-2" style="text-align: right;">
+            <p class="muted">Issued on <%- invoice.date %>
+
+            </p>
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <h3>Company</h3>
+            <p>
+                <strong>Simple Invoice</strong><br />
+                Sample Address<br />
+                Chicago, IL 60608
+            </p>
+        </div>
+        <div class="pure-u-1-2" style="text-align: right;">
+            <h3>Billed to</h3>
+            <p>
+                <strong>
+                    <%- customer.name%>
+                </strong><br />
+                <%- customer.contact%><br />
+                    <%- customer.address%><br />
+
+            </p>
+        </div>
+    </div>
+    <table id="table" class="pure-table pure-table-horizontal table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Item</th>
+                <th>notes</th>
+                <th class="text-right">Amount</th>
+                <th class="text-right">Paid Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <%- invoice.item %>
+                </td>
+                <td>
+                    <%- invoice.notes%>
+                </td>
+                <td class="text-right">₹<%- invoice.amount%>
+                </td>
+                <td class="text-right">₹<%- invoice.paid%>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="text-right">Subtotal:</td>
+                <td class="text-right">₹<%- invoice.paid%>
+                </td>
+            </tr>
+            <tr class="bold">
+                <td></td>
+                <td></td>
+                <td class="text-right">Total:</td>
+                <td class="text-right">₹<%- invoice.paid%>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>And the Due date is <%- invoice.duedate %><br>
+            You have to pay before the due date. If you have paid the amount just ignored it.
+    </p>
+    <br>
+    <div class="footer-light text-center">
+        <p>Thank you for your business!</p>
+    </div><br><br>
+</div>

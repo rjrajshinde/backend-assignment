@@ -1,0 +1,36 @@
+<h3 class="form-heading text-center">Add the Invoice</h3>
+<form class="form-group" action="/invoice/addInvoice" method="POST">
+    <div class="row">
+
+        <input type="text" class="form-control col" id="item" name="item" placeholder="Enter items purchased" required>
+        <label for="duedate">Select Due Date</label>
+        <input type="date" class="form-control col" id="duedate" name="duedate" required>
+    </div>
+    <div class="row">
+        <input type="text" class="form-control col" id="notes" name="notes" placeholder="Add the Extra Notes" required>
+    </div>
+    <div class="row">
+        <input type="text" class="form-control col" id="amount" name="amount" placeholder="Enter Total Amount ₹0.00"
+            required>
+        <input type="text" class="form-control col" id="paid" name="paid" placeholder="Enter Paid Amount ₹0.00"
+            required>
+    </div>
+    <div class="row">
+        <label for="status">Select Status</label>
+        <select class="form-control col" name="status" data-live-search="true" id="status" required>
+            <option value="Paid">Paid</option>
+            <option value="Late" selected>Late</option>
+            <option value="OutStanding">OutStanding</option>
+        </select>
+        <label for="invoice_customer">Select Client</label>
+        <select class="form-control col" data-live-search="true" name="invoice_customer" id="invoice_customer" required>
+            <% customer.forEach(client=> {%>
+                <option label="<%= client.name %>" value="<%= client.id %>"></option>
+                <% }) %>
+        </select>
+    </div>
+    <div class="row">
+        <input type="submit" class="btn btn-primary col" value="Submit">
+        <a href="/invoice" class="btn btn-danger col">Cancel</a>
+    </div>
+</form>
